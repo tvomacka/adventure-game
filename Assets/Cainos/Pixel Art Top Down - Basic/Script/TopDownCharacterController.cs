@@ -7,6 +7,7 @@ namespace Cainos.PixelArtTopDown_Basic
     public class TopDownCharacterController : MonoBehaviour
     {
         public float speed;
+        public GameObject GameManager;
 
         private Animator animator;
 
@@ -23,22 +24,26 @@ namespace Cainos.PixelArtTopDown_Basic
             {
                 dir.x = -1;
                 animator.SetInteger("Direction", 3);
+                GameManager.GetComponent<Logging>().Log("A");
             }
             else if (Input.GetKey(KeyCode.D))
             {
                 dir.x = 1;
                 animator.SetInteger("Direction", 2);
+                GameManager.GetComponent<Logging>().Log("D");
             }
 
             if (Input.GetKey(KeyCode.W))
             {
                 dir.y = 1;
                 animator.SetInteger("Direction", 1);
+                GameManager.GetComponent<Logging>().Log("W");
             }
             else if (Input.GetKey(KeyCode.S))
             {
                 dir.y = -1;
                 animator.SetInteger("Direction", 0);
+                GameManager.GetComponent<Logging>().Log("S");
             }
 
             dir.Normalize();
