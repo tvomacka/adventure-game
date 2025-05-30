@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get { return _instance; } }
 
+    public Logging Logger;
+
 
     private void Awake()
     {
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
         else
         {
             _instance = this;
+            Logger = Instance.GetComponentInParent<Logging>();
         }
     }
 }
