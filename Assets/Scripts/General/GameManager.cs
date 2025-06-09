@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,6 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
 
     public Logging Logger;
+
+    public GameState GameState;
+
+    public bool TerminalOn = false;
 
 
     private void Awake()
@@ -21,4 +26,21 @@ public class GameManager : MonoBehaviour
             Logger = Instance.GetComponentInParent<Logging>();
         }
     }
+
+    public void Update()
+    {
+        UpdateGUI();
+    }
+
+    private void UpdateGUI()
+    {
+        Logger.Output.enabled = TerminalOn;
+    }
+}
+
+public enum GameState
+{
+    Normal,
+    Inventory,
+    Dialog
 }
