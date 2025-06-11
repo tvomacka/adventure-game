@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        if (Input.GetKeyUp(KeyCode.BackQuote))
+        {
+            TerminalOn = !TerminalOn;
+        }
         UpdateGUI();
     }
 
